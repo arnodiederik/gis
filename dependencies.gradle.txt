@@ -1,0 +1,69 @@
+/*
+ * Contains all external references and version used in the project. 
+ * It is not advised to use direct references in each sub-project buildscript for maintenance purposes. 
+ * Keeping the versions here allows us to control them for the entire solution
+ *
+ */
+
+ext {
+    libraries = [:]
+	
+    dropwizardVersion = '1.0.0'
+    jettyVersion = '9.3.9.v20160517'
+}
+
+/* Google Guava, general purpose utility library */
+libraries.guava = 'com.google.guava:guava:18.0'
+
+/* Google GSON, library for building and parsing JSON structures */
+libraries.gson = 'com.google.code.gson:gson:2.7'
+
+/* Apache commons io */
+libraries.apache_commons_io = 'org.apache.directory.studio:org.apache.commons.io:2.4'
+
+/* JUnit unit test library */
+libraries.test_junit = 'junit:junit:4.11'
+
+/* Technolution core */
+libraries.techno_core = 'nl.technolution:techno-core:1.4+'
+
+/* Dropwizard, jetty/jersey/jackson */
+libraries.dropwizard = [
+    'io.dropwizard:dropwizard-core:' + dropwizardVersion,
+    'io.dropwizard:dropwizard-assets:' + dropwizardVersion,
+    'io.dropwizard:dropwizard-auth:' + dropwizardVersion,
+    'io.dropwizard:dropwizard-forms:' + dropwizardVersion
+]
+
+/* Dropwizard testing libraries (used for integration tests) */
+libraries.dropwizard_testing = 'io.dropwizard:dropwizard-testing:' + dropwizardVersion
+
+/* Jetty web server proxy, used in development of SPA */
+libraries.jetty_proxy = 'org.eclipse.jetty:jetty-proxy:' + jettyVersion
+
+/* SLF4J logging library */
+libraries.slf4j = [
+    'org.slf4j:slf4j-api:1.7.21',
+    'ch.qos.logback:logback-classic:1.1.7'
+]
+
+/* SQLite JDBC driver, used for parsing Ringtoets database files */
+libraries.sqlite = 'org.xerial:sqlite-jdbc:3.8.11.2'
+
+// REVIEW: Should library package versions be defined here? (RBO)
+
+/* Hibernate database persistence */
+libraries.persistence = [ 
+    'org.hibernate:hibernate-core:4.3.11',
+    'org.postgresql:postgresql:9.4-1206-jdbc41', 
+    'org.hibernate:hibernate-c3p0:4.3.11.Final', // (Hibernate connection pooling, should be used for production.)
+    'nl.technolution:techno-hibernate4:1.4+'
+]
+
+libraries.geometry = 'com.vividsolutions:jts:1.13'
+
+libraries.spatial = 'org.hibernate:hibernate-spatial:4.3'
+
+/* Hibernate database persistence for testing */
+libraries.persistence_test = 'org.hsqldb:hsqldb:2.3.3'
+// Tijdelijke oplossing voor uitvoeren tests op Jenkins, totdat testomgeving beschikbaar is. 
