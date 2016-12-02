@@ -16,23 +16,40 @@
  */
 package nl.technolution.wvp.common;
 
-import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.io.StringWriter;
 
 /**
- * Common utilities.
+ * Outputs comma separated value formatted data 
  */
-public final class Util {
+public final class CSVOutput {
+    
+    private final String separator;
+    private final String newline;
+    private final StringWriter writer = new StringWriter();
 
-    private Util() {
-        // Utility class
+    public CSVOutput(String separator, String newline) {
+        this.separator = separator;
+        this.newline = newline;
     }
-
+    
     /**
-     * Returns a list consisting of the results of applying the given function to the elements of this list.
+     * Add new row to the CSV output
+     * @param fields
      */
-    public static <T, R> List<R> map(List<T> list, Function<T, R> mapper) {
-        return list.stream().map(mapper).collect(Collectors.toList());
+    public void addRow(String... fields) {
+        if (fields.length > 0) {
+            for (int i = 0; i < fields.length - 1; i++) {
+                writer.write(fields[i]);
+                writer.write(separator);
+            }
+            writer.write(fields[fields.length - 1]);
+        }
+        writer.write(newline);
     }
+    
+    @Override
+    public String toString() {
+        return writer.toString();
+    }
+    
 }

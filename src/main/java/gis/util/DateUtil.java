@@ -16,23 +16,24 @@
  */
 package nl.technolution.wvp.common;
 
-import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+import java.util.Date;
 
 /**
- * Common utilities.
+ * Contains utilities for Data manipulation
  */
-public final class Util {
+public final class DateUtil {
 
-    private Util() {
-        // Utility class
+    private DateUtil() {
+        // hide constructor of utility class
     }
-
+    
     /**
-     * Returns a list consisting of the results of applying the given function to the elements of this list.
+     * Copies a date
+     * @param date to copy
+     * @return copy of date
      */
-    public static <T, R> List<R> map(List<T> list, Function<T, R> mapper) {
-        return list.stream().map(mapper).collect(Collectors.toList());
+    public static Date copy(Date date) {
+        return new Date(date.getTime());
     }
+    
 }

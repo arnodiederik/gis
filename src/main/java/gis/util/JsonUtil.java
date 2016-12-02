@@ -1,3 +1,19 @@
+/*
+ (C) COPYRIGHT 2016 TECHNOLUTION BV, GOUDA NL
+| =======          I                   ==          I    =
+|    I             I                    I          I
+|    I   ===   === I ===  I ===   ===   I  I    I ====  I   ===  I ===
+|    I  /   \ I    I/   I I/   I I   I  I  I    I  I    I  I   I I/   I
+|    I  ===== I    I    I I    I I   I  I  I    I  I    I  I   I I    I
+|    I  \     I    I    I I    I I   I  I  I   /I  \    I  I   I I    I
+|    I   ===   === I    I I    I  ===  ===  === I   ==  I   ===  I    I
+|                 +---------------------------------------------------+
++----+            |  +++++++++++++++++++++++++++++++++++++++++++++++++|
+     |            |             ++++++++++++++++++++++++++++++++++++++|
+     +------------+                          +++++++++++++++++++++++++|
+                                                        ++++++++++++++|
+                                                                 +++++|
+ */
 package nl.technolution.wvp.common;
 
 import java.io.FileNotFoundException;
@@ -25,12 +41,14 @@ import org.joda.time.DateTime;
 import org.joda.time.format.ISODateTimeFormat;
 import org.slf4j.Logger;
 
+import nl.technolution.core.Log;
 
 /**
  * Helper class for formatting JSON objects.
  */
 // SUPPRESS CHECKSTYLE DataAbstractionCoupling - no problem here
 public final class JsonUtil {
+    private static final Logger LOG = Log.getLogger();
 
     private JsonUtil() {
         // Utility class

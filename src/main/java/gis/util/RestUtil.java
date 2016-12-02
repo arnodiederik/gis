@@ -1,4 +1,20 @@
-package gis.util;
+/*
+ (C) COPYRIGHT 2016 TECHNOLUTION BV, GOUDA NL
+| =======          I                   ==          I    =
+|    I             I                    I          I
+|    I   ===   === I ===  I ===   ===   I  I    I ====  I   ===  I ===
+|    I  /   \ I    I/   I I/   I I   I  I  I    I  I    I  I   I I/   I
+|    I  ===== I    I    I I    I I   I  I  I    I  I    I  I   I I    I
+|    I  \     I    I    I I    I I   I  I  I   /I  \    I  I   I I    I
+|    I   ===   === I    I I    I  ===  ===  === I   ==  I   ===  I    I
+|                 +---------------------------------------------------+
++----+            |  +++++++++++++++++++++++++++++++++++++++++++++++++|
+     |            |             ++++++++++++++++++++++++++++++++++++++|
+     +------------+                          +++++++++++++++++++++++++|
+                                                        ++++++++++++++|
+                                                                 +++++|
+ */
+package nl.technolution.wvp.common;
 
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.client.Client;
@@ -11,11 +27,13 @@ import javax.ws.rs.core.Response;
 
 import org.slf4j.Logger;
 
+import nl.technolution.core.Log;
 
 /**
  * Some generic REST function calls
  */
 public final class RestUtil {
+    private static final Logger LOG = Log.getLogger();
 
     private RestUtil() {
         // intentionally left empty, so the static class cannot be initiated
